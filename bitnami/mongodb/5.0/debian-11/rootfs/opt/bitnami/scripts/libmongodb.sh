@@ -1364,10 +1364,10 @@ configure_permissions() {
 
     if [[ -e "$path" ]]; then
         if [[ -n $dir_mode ]] && [[ -n $file_mode ]]; then
-            find -L "$path" -type d -exec chmod "$dir_mode" {} \;
+            find -L "$path" -type d -exec chmod "$dir_mode" {} +
         fi
         if [[ -n $file_mode ]]; then
-            find -L "$path" -type f -exec chmod "$file_mode" {} \;
+            find -L "$path" -type f -exec chmod "$file_mode" {} +
         fi
         chown -LR "$user":"$group" "$path"
     else

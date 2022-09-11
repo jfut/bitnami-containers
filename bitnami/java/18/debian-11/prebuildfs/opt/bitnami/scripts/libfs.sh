@@ -171,10 +171,10 @@ configure_permissions_ownership() {
     for p in "${filepaths[@]}"; do
         if [[ -e "$p" ]]; then
             if [[ -n $dir_mode ]]; then
-                find -L "$p" -type d -exec chmod "$dir_mode" {} \;
+                find -L "$p" -type d -exec chmod "$dir_mode" {} +
             fi
             if [[ -n $file_mode ]]; then
-                find -L "$p" -type f -exec chmod "$file_mode" {} \;
+                find -L "$p" -type f -exec chmod "$file_mode" {} +
             fi
             if [[ -n $user ]] && [[ -n $group ]]; then
                 chown -LR "$user":"$group" "$p"
